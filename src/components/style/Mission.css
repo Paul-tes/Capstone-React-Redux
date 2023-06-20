@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+table.mission-table {
+  border: 2px solid #dfdfdf;
+  border-collapse: collapse;
+  margin: 1rem 3rem 0 3rem;
+}
+
+.mission-table td {
+  border: 2px solid #dfdfdf;
+  padding: 0.5rem;
+}
+
+.mission-table td:first-child {
+  width: 10rem;
+}
+
+.mission-table td:nth-child(2) {
+  width: 50rem;
+}
+
+.mission-table td:nth-child(3) {
+  width: 10rem;
+  align-items: center;
+}
+
+.mission-table td:nth-child(4) {
+  width: 11rem;
+}
+
+td button {
+  background: none;
+}
