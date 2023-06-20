@@ -1,0 +1,24 @@
+.rocket {
+  display: flex;
+  margin: 50px;
+  gap: 10px;
+}
+
+.description {
+  line-height: 1.5rem;
+}
+
+.details {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-reserve {
+  color: white;
+  background-color: #007bff;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
