@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="right-nav">
         <NavLink to="/">Rocket</NavLink>
         <NavLink to="missions">Missions</NavLink>
-        <div className="vertical-line">.</div>
+        <div className="vertical-line" />
         <NavLink to="profile">My Profile</NavLink>
       </div>
     </div>
