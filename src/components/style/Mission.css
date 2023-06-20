@@ -10,7 +10,7 @@ table.mission-table {
 
 .mission-table td {
   border: 2px solid #dfdfdf;
-  padding: 0.5rem;
+  padding: 0.4rem;
 }
 
 .mission-table td:first-child {
@@ -32,4 +32,9 @@ table.mission-table {
 
 td button {
   background: none;
+  margin: 0 auto;
+}
+
+.mission-table tbody tr:nth-child(2n) td {
+  background-color: #dfdfdf;
 }
