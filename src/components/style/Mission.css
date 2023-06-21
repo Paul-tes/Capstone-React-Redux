@@ -32,7 +32,7 @@ table.mission-table {
 
 td button {
   background: none;
-  margin: 0 auto;
+  margin: 0 autog;
 }
 
 .mission-table tbody tr:nth-child(2n) td {
