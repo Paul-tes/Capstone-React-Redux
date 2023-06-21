@@ -14,6 +14,14 @@
   font-weight: bold;
 }
 
+.badge {
+  background-color: #18a2b8;
+  color: white;
+  padding: 3px;
+  border-radius: 4px;
+  margin-right: 3px;
+}
+
 .btn-reserve {
   color: white;
   background-color: #007bff;
@@ -21,6 +29,14 @@
   outline: none;
   border-radius: 5px;
   border: none;
+}
+
+.btn-cancel {
+  color: #2e3544;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #2e3544;
 }
 
 .alert {
