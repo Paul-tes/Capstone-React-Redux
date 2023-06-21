@@ -48,6 +48,7 @@ const rocketsSlice = createSlice({
       }),
     }),
     reservedRocket: (state) => ({
+      ...state,
       rockets: state.rockets.filter((rocket) => rocket.reserved),
     }),
   },
