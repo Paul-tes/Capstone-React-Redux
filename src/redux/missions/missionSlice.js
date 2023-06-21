@@ -33,6 +33,10 @@ const missionSlice = createSlice({
         return { ...mission, joined: false };
       }),
     }),
+    joindedMissions: (state) => ({
+      ...state,
+      data: state.data.filter((mission) => mission.joined),
+    }),
   },
   extraReducers: (builder) => {
     builder
@@ -55,5 +59,5 @@ const missionSlice = createSlice({
   },
 });
 
-export const { joinMission, leavMission } = missionSlice.actions;
+export const { joinMission, leavMission, joindedMissions } = missionSlice.actions;
 export default missionSlice.reducer;
