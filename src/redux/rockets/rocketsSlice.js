@@ -5,19 +5,13 @@ const URL = 'https://api.spacexdata.com/v4/rockets';
 
 export const getRockets = createAsyncThunk(
   'rockets/getRockets',
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get(URL);
-      const data = response.data.map((rocket) => ({
-        ...rocket,
-        reserved: false,
-      }));
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        'Oops, an error occurred while getting data',
-      );
-    }
+  async () => {
+    const response = await axios.get(URL);
+    const data = response.data.map((rocket) => ({
+      ...rocket,
+      reserved: false,
+    }));
+    return data;
   },
 );
 
