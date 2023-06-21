@@ -17,6 +17,8 @@ export default function Profile() {
         <div className="dimension">
           <h2>My Missions</h2>
           <p className="profile-rockets">Mission list goes here</p>
+          <p className="profile-rockets">Mission list goes here</p>
+          <p className="profile-rockets">Mission list goes here</p>
         </div>
         <div className="dimension">
           <h2>My Missions</h2>
