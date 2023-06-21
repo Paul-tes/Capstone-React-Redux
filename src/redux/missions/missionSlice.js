@@ -18,7 +18,15 @@ const missionSlice = createSlice({
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    joinMission: (state, action) => ({
+      ...state,
+      data: state.data.map((mission) => {
+        if (mission.mission_id !== action.payload) return mission;
+        return { ...mission, reserved: true };
+      }),
+    }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMission.pending, (state) => {
@@ -30,6 +38,7 @@ const missionSlice = createSlice({
           mission_id: mission.mission_id,
           mission_name: mission.mission_name,
           description: mission.description,
+          reserved: false,
         }));
       })
       .addCase(fetchMission.rejected, (state, action) => {
@@ -39,4 +48,5 @@ const missionSlice = createSlice({
   },
 });
 
+export const { joinMission } = missionSlice.actions;
 export default missionSlice.reducer;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './style/Mission.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMission } from '../redux/missions/missionSlice';
+import { fetchMission, joinMission } from '../redux/missions/missionSlice';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export default function Missions() {
                   {mission.description}
                 </td>
                 <td><button type="button">Note A Menber</button></td>
-                <td><button type="button">Join Mission</button></td>
+                <td><button type="button" onClick={() => dispatch(joinMission('9D1B7E0'))}>Join Mission</button></td>
               </tr>
             ))}
           {error && <tr>Error fetching data</tr>}
