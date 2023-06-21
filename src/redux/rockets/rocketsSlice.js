@@ -7,11 +7,15 @@ export const getRockets = createAsyncThunk(
   'rockets/getRockets',
   async (_, thunkAPI) => {
     try {
-      const response = await axios(URL);
-      return response.data;
+      const response = await axios.get(URL);
+      const data = response.data.map((rocket) => ({
+        ...rocket,
+        reserved: false,
+      }));
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        'Ooops, error has occurred while getting data',
+        'Oops, an error occurred while getting data',
       );
     }
   },
@@ -23,6 +27,26 @@ const rocketsSlice = createSlice({
     rockets: {},
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    bookRocket: (state, action) => ({
+      ...state,
+      rockets: state.rockets.map((rocket) => {
+        if (rocket.id !== action.payload) {
+          return rocket;
+        }
+        return { ...rocket, reserved: true };
+      }),
+    }),
+    cancelBooking: (state, action) => ({
+      ...state,
+      rockets: state.rockets.map((rocket) => {
+        if (rocket.id !== action.payload) {
+          return rocket;
+        }
+        return { ...rocket, reserved: false };
+      }),
+    }),
   },
   extraReducers: {
     [getRockets.pending]: (state) => {
@@ -41,4 +65,5 @@ const rocketsSlice = createSlice({
   },
 });
 
+export const { bookRocket, cancelBooking } = rocketsSlice.actions;
 export default rocketsSlice.reducer;
