@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import '../style/Mission.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMission, joinMission } from '../../redux/missions/missionSlice';
-import State from './State';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ export default function Missions() {
         <thead className="mission-t-head">
           <tr className="mission-t-row">
             <td>Mission</td>
-            <td>Description</td>
+            <td style={{ fontWeight: '700' }}>Description</td>
             <td>Status</td>
           </tr>
         </thead>
@@ -31,7 +30,16 @@ export default function Missions() {
                 <td>
                   {mission.description}
                 </td>
-                <State onClick={joinMission()} />
+                <td><button type="button" className="mission-btn not-menber-btn">Active Member</button></td>
+                <td>
+                  <button
+                    type="button"
+                    className="mission-btn join-mission-btn"
+                    onClick={joinMission()}
+                  >
+                    Leav Mission
+                  </button>
+                </td>
               </tr>
             ))}
           {error && <tr>Error fetching data</tr>}
