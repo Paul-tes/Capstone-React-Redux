@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import '../style/Mission.css';
+import './style/Mission.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMission, joinMission } from '../../redux/missions/missionSlice';
+import { fetchMission, joinMission, leavMission } from '../redux/missions/missionSlice';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -10,6 +10,15 @@ export default function Missions() {
   useEffect(() => {
     dispatch(fetchMission());
   }, [dispatch]);
+
+  const eventHandler = (event, joined) => {
+    const { id } = event.target.parentElement.parentElement;
+    if (joined) {
+      dispatch(leavMission(id));
+    } else {
+      dispatch(joinMission(id));
+    }
+  };
 
   return (
     <div>
@@ -42,7 +51,7 @@ export default function Missions() {
                   <button
                     type="button"
                     className={mission.joined ? 'mission-btn leav-mission-btn' : 'mission-btn join-mission-btn'}
-                    onClick={joinMission()}
+                    onClick={(e) => eventHandler(e, mission.joined)}
                   >
                     {mission.joined ? 'Leave Mission' : 'Join Mission'}
                   </button>
