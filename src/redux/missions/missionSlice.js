@@ -23,7 +23,7 @@ const missionSlice = createSlice({
       ...state,
       data: state.data.map((mission) => {
         if (mission.mission_id !== action.payload) return mission;
-        return { ...mission, reserved: true };
+        return { ...mission, joined: true };
       }),
     }),
   },
@@ -38,7 +38,7 @@ const missionSlice = createSlice({
           mission_id: mission.mission_id,
           mission_name: mission.mission_name,
           description: mission.description,
-          reserved: false,
+          joined: false,
         }));
       })
       .addCase(fetchMission.rejected, (state, action) => {

@@ -30,14 +30,21 @@ export default function Missions() {
                 <td>
                   {mission.description}
                 </td>
-                <td><button type="button" className="mission-btn not-menber-btn">Active Member</button></td>
                 <td>
                   <button
                     type="button"
-                    className="mission-btn join-mission-btn"
+                    className={mission.joined ? 'mission-btn active-member' : 'mission-btn not-menber-btn'}
+                  >
+                    {mission.joined ? 'Active Member' : 'Not A MEBMBER'}
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    className={mission.joined ? 'mission-btn leav-mission-btn' : 'mission-btn join-mission-btn'}
                     onClick={joinMission()}
                   >
-                    Leav Mission
+                    {mission.joined ? 'Leave Mission' : 'Join Mission'}
                   </button>
                 </td>
               </tr>
