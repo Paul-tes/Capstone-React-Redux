@@ -47,6 +47,9 @@ const rocketsSlice = createSlice({
         return { ...rocket, reserved: false };
       }),
     }),
+    reservedRocket: (state) => ({
+      rockets: state.rockets.filter((rocket) => rocket.reserved),
+    }),
   },
   extraReducers: {
     [getRockets.pending]: (state) => {
@@ -65,5 +68,5 @@ const rocketsSlice = createSlice({
   },
 });
 
-export const { bookRocket, cancelBooking } = rocketsSlice.actions;
+export const { bookRocket, cancelBooking, reservedRocket } = rocketsSlice.actions;
 export default rocketsSlice.reducer;
