@@ -15,10 +15,13 @@ table.mission-table {
 
 .mission-table td:first-child {
   width: 10rem;
+  font-weight: 700;
 }
 
 .mission-table td:nth-child(2) {
   width: 50rem;
+  font-weight: 300;
+  font-size: 0.9rem;
 }
 
 .mission-table td:nth-child(3) {
@@ -30,11 +33,43 @@ table.mission-table {
   width: 11rem;
 }
 
-td button {
-  background: none;
-  margin: 0 auto;
-}
-
 .mission-table tbody tr:nth-child(2n) td {
   background-color: #dfdfdf;
+}
+
+td button {
+  background: none;
+  border: none;
+}
+
+button.mission-btn {
+  margin-left: 16%;
+  padding: 0 3px;
+}
+
+button.not-menber-btn {
+  background-color: gray;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+button.join-mission-btn {
+  border: 2px solid gray;
+  padding: 0.4rem;
+  border-radius: 4px;
+}
+
+button.active-member {
+  background-color: #18a2b8;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+button.leav-mission-btn {
+  border: 1.5px solid #dc3645;
+  padding: 0.4rem;
+  border-radius: 4px;
+  color: #dc3645;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './style/Mission.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMission } from '../redux/missions/missionSlice';
+import { fetchMission, joinMission, leavMission } from '../redux/missions/missionSlice';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -11,13 +11,22 @@ export default function Missions() {
     dispatch(fetchMission());
   }, [dispatch]);
 
+  const eventHandler = (event, joined) => {
+    const { id } = event.target.parentElement.parentElement;
+    if (joined) {
+      dispatch(leavMission(id));
+    } else {
+      dispatch(joinMission(id));
+    }
+  };
+
   return (
     <div>
       <table className="mission-table">
         <thead className="mission-t-head">
           <tr className="mission-t-row">
             <td>Mission</td>
-            <td>Description</td>
+            <td style={{ fontWeight: '700' }}>Description</td>
             <td>Status</td>
           </tr>
         </thead>
@@ -30,8 +39,23 @@ export default function Missions() {
                 <td>
                   {mission.description}
                 </td>
-                <td><button type="button">Note A Menber</button></td>
-                <td><button type="button">Join Mission</button></td>
+                <td>
+                  <button
+                    type="button"
+                    className={mission.joined ? 'mission-btn active-member' : 'mission-btn not-menber-btn'}
+                  >
+                    {mission.joined ? 'Active Member' : 'Not A MEBMBER'}
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    className={mission.joined ? 'mission-btn leav-mission-btn' : 'mission-btn join-mission-btn'}
+                    onClick={(e) => eventHandler(e, mission.joined)}
+                  >
+                    {mission.joined ? 'Leave Mission' : 'Join Mission'}
+                  </button>
+                </td>
               </tr>
             ))}
           {error && <tr>Error fetching data</tr>}
