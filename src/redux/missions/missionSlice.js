@@ -26,13 +26,6 @@ const missionSlice = createSlice({
         return { ...mission, reserved: true };
       }),
     }),
-    leavMission: (state, action) => ({
-      ...state,
-      data: state.date.map((mission) => {
-        if (mission.mission_id !== action.payload) return mission;
-        return { ...mission, reserved: false };
-      }),
-    }),
   },
   extraReducers: (builder) => {
     builder
