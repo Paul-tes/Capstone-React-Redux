@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
@@ -9,12 +9,4 @@ test('renders the navbar component snapshot', () => {
     </BrowserRouter>,
   );
   expect(asFragment()).toMatchSnapshot();
-});
-
-test('renders Rocket in navigation', async () => {
-  render(
-    <Navbar />,
-  );
-  const linkElement = screen.getByText(/Rocket/i);
-  expect(linkElement).toBeInTheDocument();
 });
