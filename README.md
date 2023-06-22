@@ -37,7 +37,7 @@
 
 # 📖Space Travelers' Hub  <a name="about-project"></a>
 
-**Space Travelers' Hub** is a...
+**Space Travelers' Hub** is a web page that loads rocket and mission information from the API and allows the user to reserve a rocket and join a mission. built with react-redux.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -74,7 +74,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo](https://space-travelers-ad4k.onrender.com/)
+N/A
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
