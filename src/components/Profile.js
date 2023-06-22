@@ -33,8 +33,7 @@ export default function Profile() {
           }
         </div>
         <div className="dimension">
-          <h2>My Missions</h2>
-
+          <h2>My Rockets</h2>
           {Object.entries(rockets).map(([id, rocket]) => (
             <div key={id} className="profile-rockets">
               <div>
